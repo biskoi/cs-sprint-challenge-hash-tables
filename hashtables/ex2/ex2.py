@@ -5,10 +5,19 @@ class Ticket:
         self.destination = destination
 
 
-def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+def reconstruct_trip(pile, length):
+    table = {}
+    route = []
+
+    for ticket in pile: # O(n)
+        table[ticket.source] = ticket.destination
+
+    pointer = table['NONE']
+
+    while pointer != 'NONE':
+        route.append(pointer)
+        pointer = table[pointer]
+
+    route.append('NONE')
 
     return route
