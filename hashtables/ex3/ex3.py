@@ -1,10 +1,21 @@
-def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+def intersection(bigList):
+    count = {}
+    intersects = []
+    length = len(bigList)
 
-    return result
+    for item in bigList:
+        for subItem in item:
+
+            if subItem not in count:
+                count[subItem] = 0
+
+            count[subItem] += 1
+
+    for num in count:
+        if count[num] >= length:
+            intersects.append(num)
+
+    return intersects
 
 
 if __name__ == "__main__":
